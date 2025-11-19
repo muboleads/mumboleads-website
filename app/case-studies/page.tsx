@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { Container } from '@/components/ui/container'
-import { getCaseStudies } from '@/lib/case-studies-data'
+import { getCaseStudies, CaseStudy } from '@/lib/case-studies-data'
 import { getCaseStudiesFromSanity } from '@/lib/sanity'
 import { TrendingUp, Users, Target } from 'lucide-react'
 
@@ -23,7 +23,7 @@ export default async function CaseStudiesPage() {
   const fallbackCaseStudies = getCaseStudies()
 
   // Use Sanity case studies if available, otherwise use fallback
-  const caseStudies = sanityCaseStudies.length > 0
+  const caseStudies: CaseStudy[] = sanityCaseStudies.length > 0
     ? sanityCaseStudies.map((cs: any) => ({
         id: cs._id,
         slug: cs.slug.current,

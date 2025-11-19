@@ -34,7 +34,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         content: null, // Sanity uses body (Portable Text)
         body: sanityPost.body // Portable Text content
       }
-    : fallbackPost
+    : fallbackPost!
+
+  // This should never happen due to the check above, but TypeScript needs it
+  if (!post) {
+    notFound()
+  }
 
   return (
     <>

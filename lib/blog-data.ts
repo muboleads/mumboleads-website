@@ -3,12 +3,13 @@ export interface BlogPost {
   slug: string
   title: string
   excerpt: string
-  content: string
+  content: string | null
   author: string
   category: string
   image: string
   publishedAt: string
   readTime: string
+  body?: any // Sanity Portable Text content (optional)
 }
 
 export const blogPosts: BlogPost[] = [

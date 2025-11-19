@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { Container } from '@/components/ui/container'
-import { getBlogPosts } from '@/lib/blog-data'
+import { getBlogPosts, BlogPost } from '@/lib/blog-data'
 import { getPosts } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import { Calendar, Clock } from 'lucide-react'
@@ -24,12 +24,13 @@ export default async function BlogPage() {
   const fallbackPosts = getBlogPosts()
 
   // Use Sanity posts if available, otherwise use fallback
-  const posts = sanityPosts.length > 0
+  const posts: BlogPost[] = sanityPosts.length > 0
     ? sanityPosts.map((post: any) => ({
         id: post._id,
         slug: post.slug.current,
         title: post.title,
         excerpt: post.excerpt,
+        content: null,
         image: post.mainImage ? urlFor(post.mainImage).width(800).height(450).url() : '/media/download.jpeg',
         category: post.categories?.[0] || 'Lead Generation',
         publishedAt: post.publishedAt,

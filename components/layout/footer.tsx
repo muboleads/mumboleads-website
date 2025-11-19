@@ -20,8 +20,8 @@ const defaultFooter = {
   description: "B2B Cold Email Agency\nfor Busy Companies",
   email: "info@nerdyjoe.com",
   addresses: [
-    { line1: "7921H1 Lancaster Ave", line2: "Wayne, Munich, PA" },
-    { line1: "1382 Lexington Avenue", line2: "New York" }
+    { line1: "7921H1 Lancaster Ave", line2: "Wayne, Munich, PA", city: undefined },
+    { line1: "1382 Lexington Avenue", line2: "New York", city: undefined }
   ]
 }
 

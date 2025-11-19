@@ -76,7 +76,12 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
         testimonial: sanityCaseStudy.testimonial,
         publishedAt: sanityCaseStudy.publishedAt
       }
-    : fallbackCaseStudy
+    : fallbackCaseStudy!
+
+  // This should never happen due to the check above, but TypeScript needs it
+  if (!caseStudy) {
+    notFound()
+  }
 
   return (
     <>
@@ -155,7 +160,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
               <section className="mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">The Results</h2>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {caseStudy.results.map((result, index) => (
+                  {caseStudy.results.map((result: { value: string; metric: string }, index: number) => (
                     <div
                       key={index}
                       className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6 text-center"
