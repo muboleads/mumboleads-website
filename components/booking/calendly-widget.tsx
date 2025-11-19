@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { PopupModal } from "react-calendly"
 
 interface CalendlyWidgetProps {
@@ -10,8 +11,13 @@ interface CalendlyWidgetProps {
 
 export function CalendlyWidget({ isOpen, onClose, url }: CalendlyWidgetProps) {
   const calendlyUrl = url || "https://calendly.com/hopewell-mumboleads/30min"
+  const [mounted, setMounted] = useState(false)
 
-  if (typeof document === 'undefined') {
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
     return null
   }
 
