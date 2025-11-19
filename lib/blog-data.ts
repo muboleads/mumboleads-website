@@ -95,7 +95,7 @@ Cold email works when it's done right. The question isn't whether to use cold em
 
 Want help implementing these tactics for your business? [Book a consultation](/case-studies) to discuss your specific situation.
     `,
-    author: 'Mumbo LEADS Team',
+    author: 'Mumbo Leads Team',
     category: 'Cold Email',
     image: '/media/B2B-Cold-Email-Agency.png',
     publishedAt: '2024-11-10',
@@ -248,7 +248,7 @@ We've generated 10,000+ leads for B2B companies using these exact strategies.
 
 [View our case studies](/case-studies) or [book a consultation](/#book-call) to discuss your specific needs.
     `,
-    author: 'Mumbo LEADS Team',
+    author: 'Mumbo Leads Team',
     category: 'Lead Generation',
     image: '/media/FeaturedIcon1.webp',
     publishedAt: '2024-11-15',

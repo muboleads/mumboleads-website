@@ -51,7 +51,7 @@ export function Partners({ data }: PartnersProps) {
           <div className="flex items-center justify-center gap-2 mb-6">
             <div className="h-px w-12 bg-gray-300" />
             <h2 className="text-xl font-bold text-gray-900">
-              Official Partners of:
+              Tools
             </h2>
             <div className="h-px w-12 bg-gray-300" />
           </div>
@@ -59,7 +59,7 @@ export function Partners({ data }: PartnersProps) {
             {officialPartners.map((partner: any, index: number) => (
               <div
                 key={index}
-                className="flex h-20 w-32 items-center justify-center rounded-xl bg-white p-4 shadow-md border border-gray-200"
+                className="flex h-20 w-32 items-center justify-center rounded-xl bg-white p-4 shadow-md border border-primary-400"
               >
                 <Image
                   src={partner.logoUrl}
@@ -84,21 +84,21 @@ export function Partners({ data }: PartnersProps) {
             {companies.map((company: any, index: number) => (
               <div
                 key={index}
-                className="flex h-32 w-full items-center justify-center rounded-xl bg-white p-6 shadow-md border border-gray-200 md:grayscale md:hover:grayscale-0 transition-all duration-300 hover:shadow-lg"
+                className="flex h-32 w-full items-center justify-center rounded-xl bg-white p-6 shadow-md border border-primary-400 transition-all duration-300 hover:shadow-lg"
               >
                 <Image
                   src={company.logoUrl}
                   alt={`${company.name} logo`}
                   width={160}
                   height={80}
-                  className="max-h-20 w-auto object-contain"
+                  className="max-h-20 w-auto object-contain md:grayscale md:hover:grayscale-0"
                 />
               </div>
             ))}
 
             {/* Add "..and counting" card if odd number of logos */}
             {companies.length % 2 !== 0 && (
-              <div className="flex h-32 w-full items-center justify-center rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 p-6 shadow-md border-2 border-primary-400 transition-all duration-300 hover:shadow-lg">
+              <div className="flex h-32 w-full items-center justify-center rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 p-6 shadow-md border border-primary-400 transition-all duration-300 hover:shadow-lg">
                 <span className="text-2xl font-bold text-gray-900">
                   ...and counting
                 </span>

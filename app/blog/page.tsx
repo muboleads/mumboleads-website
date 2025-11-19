@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Blog - Lead Generation Insights & Tips',
   description: 'Expert insights on B2B lead generation, cold email strategies, and sales qualified leads. Learn from the best in the industry.',
   openGraph: {
-    title: 'Blog - Lead Generation Insights & Tips | Mumbo LEADS',
+    title: 'Blog - Lead Generation Insights & Tips | Mumbo Leads',
     description: 'Expert insights on B2B lead generation, cold email strategies, and sales qualified leads.',
   },
 }
@@ -35,7 +35,7 @@ export default async function BlogPage() {
         category: post.categories?.[0] || 'Lead Generation',
         publishedAt: post.publishedAt,
         readTime: post.readTime || '5 min read',
-        author: post.author || 'Mumbo LEADS Team'
+        author: post.author || 'Mumbo Leads Team'
       }))
     : fallbackPosts
 

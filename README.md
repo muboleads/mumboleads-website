@@ -1,15 +1,16 @@
-# Mumbo LEADS - B2B Lead Generation Landing Page
+# Mumbo Leads - B2B Lead Generation Website
 
-A high-performance, SEO-optimized landing page clone built with Next.js 14, featuring calendar booking integration, headless CMS for blog management, and pixel-perfect design implementation.
+A high-performance, SEO-optimized website built with Next.js 14, featuring Calendly booking integration, Sanity CMS for full content management, premium animations, and modern design implementation.
 
 ## Features
 
 - **Modern Tech Stack**: Next.js 14 (App Router), TypeScript, Tailwind CSS
-- **SEO-First Architecture**: JSON-LD schema, optimized meta tags, automatic sitemap/robots.txt
-- **Calendar Integration**: Cal.com booking system with modal interface
-- **Headless CMS**: Sanity.io for blog content management
+- **SEO-First Architecture**: JSON-LD schema, optimized meta tags, automatic sitemap/robots.txt, AI crawler support
+- **Calendar Integration**: Calendly booking system with modal interface and custom branding
+- **Headless CMS**: Sanity.io for complete content management (homepage, blog, case studies, FAQ, settings)
+- **Premium Animations**: Rotating gradient borders, breathing glow effects, smooth transitions
 - **Responsive Design**: Mobile-first, fully responsive across all devices
-- **Performance Optimized**: Image optimization, lazy loading, Core Web Vitals optimized
+- **Performance Monitoring**: Vercel Analytics and Speed Insights integration
 - **Accessible**: WCAG 2.1 AA compliant components
 
 ## Live Demo
@@ -24,7 +25,7 @@ Deploy to Vercel with one click:
 
 - Node.js 18+ and npm
 - A Sanity.io account (free tier available)
-- A Cal.com account (optional, for calendar booking)
+- A Calendly account (optional, for calendar booking)
 
 ### Installation
 
@@ -48,7 +49,6 @@ Deploy to Vercel with one click:
    ```env
    NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
    NEXT_PUBLIC_SANITY_DATASET=production
-   NEXT_PUBLIC_CAL_LINK=your-cal-username/consultation
    NEXT_PUBLIC_SITE_URL=https://yourdomain.com
    ```
 
@@ -93,27 +93,29 @@ Your studio will be available at `https://your-project.sanity.studio`.
 
 Update `.env.local` with your Sanity project ID from https://www.sanity.io/manage.
 
-## Cal.com Integration
+## Calendly Integration
 
-### 1. Set Up Cal.com
+### 1. Set Up Calendly
 
-1. Create a free account at [Cal.com](https://cal.com)
-2. Set up your event type (e.g., "Consultation")
-3. Get your booking link (format: `username/event-type`)
+1. Create a free account at [Calendly](https://calendly.com)
+2. Set up your event type (e.g., "30min consultation")
+3. Get your booking link (format: `https://calendly.com/username/event-type`)
 
 ### 2. Configure Calendar Modal
 
-Update the Cal.com link in `/components/booking/cal-modal.tsx`:
+The Calendly URL can be managed through Sanity CMS:
+
+1. Go to your Sanity Studio
+2. Navigate to Settings
+3. Update the "Calendly URL" field under Calendar Settings
+
+Alternatively, you can update it directly in `/components/booking/calendly-widget.tsx`:
 
 ```tsx
-data-cal-link="your-username/consultation"
+const calendlyUrl = url || "https://calendly.com/your-username/30min"
 ```
 
-Or use the environment variable in `.env.local`:
-
-```env
-NEXT_PUBLIC_CAL_LINK=your-username/consultation
-```
+The modal automatically uses your site's primary color (#7bca52) for branding consistency.
 
 ## Deployment to Vercel
 
@@ -131,7 +133,6 @@ vercel
 3. Configure environment variables in Vercel project settings:
    - `NEXT_PUBLIC_SANITY_PROJECT_ID`
    - `NEXT_PUBLIC_SANITY_DATASET`
-   - `NEXT_PUBLIC_CAL_LINK`
    - `NEXT_PUBLIC_SITE_URL`
 
 4. Deploy!
@@ -145,28 +146,40 @@ vercel
 ## Project Structure
 
 ```
-mumbo-leads-clone/
+nerdyjoe-clone/
 ├── app/                      # Next.js App Router
 │   ├── blog/                 # Blog pages
 │   │   ├── [slug]/          # Dynamic blog post pages
 │   │   └── page.tsx         # Blog listing page
+│   ├── case-studies/        # Case studies pages
+│   │   ├── [slug]/          # Dynamic case study pages
+│   │   └── page.tsx         # Case studies listing page
+│   ├── studio/              # Sanity Studio
+│   │   └── [[...index]]/    # Studio catch-all route
 │   ├── layout.tsx           # Root layout with metadata
 │   ├── page.tsx             # Homepage
-│   ├── globals.css          # Global styles
+│   ├── globals.css          # Global styles with custom animations
 │   ├── sitemap.ts           # Dynamic sitemap
-│   └── robots.ts            # Robots.txt configuration
+│   └── robots.ts            # Robots.txt with AI crawler support
 ├── components/
-│   ├── booking/             # Calendar booking components
+│   ├── booking/             # Calendly booking components
 │   ├── layout/              # Header, Footer
 │   ├── sections/            # Landing page sections
 │   ├── seo/                 # SEO components (JSON-LD)
 │   └── ui/                  # Reusable UI components
 ├── lib/
-│   ├── cal-context.tsx      # Calendar modal context
+│   ├── calendly-context.tsx # Calendly modal context
 │   ├── sanity.ts            # Sanity client & helpers
 │   └── utils.ts             # Utility functions
 ├── sanity/
 │   └── schemas/             # Sanity content schemas
+│       ├── homepage.ts      # Homepage content
+│       ├── post.ts          # Blog posts
+│       ├── caseStudy.ts     # Case studies
+│       ├── faq.ts           # FAQ items
+│       ├── howItWorks.ts    # Process steps
+│       ├── partner.ts       # Partners/Tools/Companies
+│       └── settings.ts      # Global settings
 ├── public/
 │   └── media/               # Images and assets
 └── types/                   # TypeScript type definitions
@@ -242,13 +255,15 @@ Replace images in `/public/media/` with your own assets.
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **CMS**: Sanity.io
-- **Calendar**: Cal.com
+- **Styling**: Tailwind CSS with custom animations (@property, conic gradients)
+- **CMS**: Sanity.io (complete content management)
+- **Calendar**: Calendly (React Calendly integration)
 - **Deployment**: Vercel
+- **Analytics**: Vercel Analytics & Speed Insights
 - **UI Components**: Custom components with Radix UI primitives
 - **Icons**: Lucide React
 - **Image Optimization**: Next.js Image
+- **Animations**: CSS @property, conic gradients, custom keyframes
 
 ## Scripts
 
@@ -275,11 +290,11 @@ MIT License - feel free to use this project for your own purposes.
 
 For issues or questions:
 - Open an issue on GitHub
-- Contact: info@mumbo-leads.com
+- Contact: hopewell@mumboleads.com
 
 ## Acknowledgments
 
-- Design inspiration from the original Mumbo LEADS website
+- Design inspiration from the original Mumbo Leads website
 - Built with modern web technologies for optimal performance and SEO
 
 ---

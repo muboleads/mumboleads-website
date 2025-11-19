@@ -24,7 +24,7 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: 'Official Partner', value: 'official'},
+          {title: 'Tool', value: 'official'},
           {title: 'Company (Clients)', value: 'company'},
         ],
         layout: 'radio',
@@ -67,7 +67,7 @@ export default {
     prepare({title, media, type, order}: any) {
       return {
         title: `${order}. ${title}`,
-        subtitle: type === 'official' ? 'Official Partner' : 'Client Company',
+        subtitle: type === 'official' ? 'Tool' : 'Client Company',
         media,
       }
     },

@@ -4,34 +4,72 @@ import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, TrendingUp } from "lucide-react"
-import { useCalModal } from "@/lib/cal-context"
+import {
+  CheckCircle2,
+  TrendingUp,
+  BarChart3,
+  DollarSign,
+  Users,
+  Mail,
+  Target,
+  Zap,
+  Rocket,
+  Phone,
+  Bell,
+  Star,
+  Gift,
+  Award,
+  Briefcase,
+  Folder,
+  LucideIcon
+} from "lucide-react"
+import { useCalendly } from "@/lib/calendly-context"
+
+// Icon mapping for dynamic icon rendering
+const iconMap: Record<string, LucideIcon> = {
+  TrendingUp,
+  BarChart3,
+  DollarSign,
+  Users,
+  Mail,
+  Target,
+  Zap,
+  CheckCircle2,
+  Rocket,
+  Phone,
+  Bell,
+  Star,
+  Gift,
+  Award,
+  Briefcase,
+  Folder,
+}
 
 // Fallback data if Sanity is not configured
 const defaultStats = [
   {
-    iconUrl: "/media/1660659496-list-building-icon.svg",
+    iconType: "Users",
     metric: "+19 B2B",
     description: "leads booked for a financing agency in 2 weeks",
     bgColor: "bg-primary-300",
     iconBg: "bg-white border-2 border-primary-400 shadow-sm"
   },
   {
-    iconUrl: "/media/1660659470-email-marketing-icon.svg",
+    iconType: "TrendingUp",
     metric: "2k+",
     description: "Took a B2B financing agency from 20 qualified leads per month with a consistent outbound engine",
     bgColor: "bg-blue-200",
     iconBg: "bg-white border-2 border-blue-300 shadow-sm"
   },
   {
-    iconUrl: "/media/1660659507-cold-email-icon.svg",
+    iconType: "DollarSign",
     metric: "$1.7M",
     description: "added in pipeline with one tailored sequence for SEO agency",
     bgColor: "bg-primary-300",
     iconBg: "bg-white border-2 border-primary-400 shadow-sm"
   },
   {
-    iconUrl: "/media/1660659496-list-building-icon.svg",
+    iconType: "Phone",
     metric: "25+",
     description: "Booked 25 podcast guest spots per month for an SEO agency turning them into pipeline",
     bgColor: "bg-yellow-200",
@@ -66,7 +104,7 @@ interface HeroProps {
 }
 
 export function Hero({ data }: HeroProps) {
-  const { openCalModal } = useCalModal()
+  const { openCalendly } = useCalendly()
 
   // Merge Sanity data with defaults, but respect empty arrays from Sanity
   const hero = {
@@ -105,14 +143,14 @@ export function Hero({ data }: HeroProps) {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
               {hero.headline}
               {hero.highlightedText && (
-                <span className="bg-gradient-to-r from-primary-600 to-gray-900 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary-500 to-gray-700 bg-clip-text text-transparent">
                   {hero.highlightedText}
                 </span>
               )}
             </h1>
 
             {hero.subheadline && (
-              <p className="mt-6 text-base text-gray-700 sm:text-lg font-semibold">
+              <p className="mt-6 text-base text-gray-700 sm:text-lg">
                 {hero.subheadline}
               </p>
             )}
@@ -135,49 +173,83 @@ export function Hero({ data }: HeroProps) {
             )}
 
             <div className="mt-8">
-              {hero.ctaUrl ? (
-                <Link href={hero.ctaUrl}>
-                  <Button size="lg" className="bg-gradient-to-r from-primary-600 to-gray-900 hover:from-primary-500 hover:to-gray-800 px-16">
+              <div className="animate-premium-button inline-block">
+                {hero.ctaUrl ? (
+                  <Link href={hero.ctaUrl} target="_blank" rel="noopener noreferrer">
+                    <Button size="lg" className="px-16 overflow-hidden relative text-2xl font-bold text-black">
+                      {hero.ctaText || "Book a Call"}
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button size="lg" onClick={openCalendly} className="px-16 overflow-hidden relative text-2xl font-bold text-black">
                     {hero.ctaText || "Book a Call"}
                   </Button>
-                </Link>
-              ) : (
-                <Button size="lg" onClick={openCalModal} className="bg-gradient-to-r from-primary-600 to-gray-900 hover:from-primary-500 hover:to-gray-800 px-16">
-                  {hero.ctaText || "Book a Call"}
-                </Button>
-              )}
+                )}
+              </div>
             </div>
           </div>
 
           {/* Right Column - Stats Cards */}
           <div className="grid gap-4 sm:grid-cols-2">
-            {stats.map((stat: any, index: number) => (
-              <div
-                key={index}
-                className={`${stat.bgColor} rounded-2xl p-6 animate-stats-glow`}
-                style={{ animationDelay: `${index * 0.3}s` }}
-              >
-                <div className={`${stat.iconBg || stat.bgColor} inline-flex rounded-xl p-3 mb-4`}>
-                  {stat.iconUrl ? (
-                    <Image
-                      src={stat.iconUrl}
-                      alt="Stat icon"
-                      width={32}
-                      height={32}
-                      className="h-8 w-8"
-                    />
+            {stats.map((stat: any, index: number) => {
+              const IconComponent = stat.iconType ? iconMap[stat.iconType] : TrendingUp
+              const isTopRight = index === 1
+
+              return (
+                <div key={index}>
+                  {isTopRight ? (
+                    <div className="animate-premium-card">
+                      <div className={`${stat.bgColor} rounded-2xl p-6`}>
+                        <div className={`${stat.iconBg || stat.bgColor} inline-flex rounded-xl p-3 mb-4`}>
+                          {stat.iconUrl ? (
+                            <Image
+                              src={stat.iconUrl}
+                              alt="Stat icon"
+                              width={32}
+                              height={32}
+                              className="h-8 w-8"
+                            />
+                          ) : (
+                            <IconComponent className="h-8 w-8 text-gray-900 stroke-2" strokeWidth={2} />
+                          )}
+                        </div>
+                        <div className="text-2xl font-bold text-gray-900 mb-2">
+                          {stat.metric}
+                        </div>
+                        <p className="text-sm text-gray-700 leading-snug">
+                          {stat.description}
+                        </p>
+                      </div>
+                    </div>
                   ) : (
-                    <TrendingUp className="h-8 w-8 text-gray-900" />
+                    <div
+                      className={`${stat.bgColor} rounded-2xl p-6 animate-stats-glow`}
+                      style={{ animationDelay: `${index * 0.3}s` }}
+                    >
+                      <div className={`${stat.iconBg || stat.bgColor} inline-flex rounded-xl p-3 mb-4`}>
+                        {stat.iconUrl ? (
+                          <Image
+                            src={stat.iconUrl}
+                            alt="Stat icon"
+                            width={32}
+                            height={32}
+                            className="h-8 w-8"
+                          />
+                        ) : (
+                          <IconComponent className="h-8 w-8 text-gray-900 stroke-2" strokeWidth={2} />
+                        )}
+                      </div>
+                      <div className="text-2xl font-bold text-gray-900 mb-2">
+                        {stat.metric}
+                      </div>
+                      <p className="text-sm text-gray-700 leading-snug">
+                        {stat.description}
+                      </p>
+                    </div>
                   )}
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-2">
-                  {stat.metric}
-                </div>
-                <p className="text-sm text-gray-700 leading-snug">
-                  {stat.description}
-                </p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </Container>

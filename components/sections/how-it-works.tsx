@@ -46,20 +46,28 @@ interface HowItWorksProps {
     description: string
     order: number
   }> | null
+  sectionData?: {
+    title?: string
+    description?: string
+  } | null
 }
 
-export function HowItWorks({ data }: HowItWorksProps) {
+export function HowItWorks({ data, sectionData }: HowItWorksProps) {
   const steps = data || defaultSteps
+
+  const sectionTitle = sectionData?.title || 'How does Mumbo Leads work?'
+  const sectionDescription = sectionData?.description || 'Generate Business Development calls and deals with your exact ICP in 4 easy steps.'
+
   return (
     <section className="py-16 sm:py-20 bg-white">
       <Container>
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            How does Mumbo LEADS work?
+            {sectionTitle}
           </h2>
           <p className="text-lg text-gray-600">
-            Generate Business Development calls and deals with your exact ICP in 4 easy steps.
+            {sectionDescription}
           </p>
         </div>
 

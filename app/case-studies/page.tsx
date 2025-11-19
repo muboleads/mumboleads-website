@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Case Studies - Real Results from Real Clients',
   description: 'See how we\'ve helped B2B companies generate thousands of qualified leads through strategic cold email campaigns. Real results, real clients.',
   openGraph: {
-    title: 'Case Studies - Real Results | Mumbo LEADS',
+    title: 'Case Studies - Real Results | Mumbo Leads',
     description: 'See how we\'ve helped B2B companies generate thousands of qualified leads.',
   },
 }

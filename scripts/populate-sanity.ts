@@ -24,45 +24,41 @@ async function populateSanity() {
       hero: {
         headline: 'Fill your calendar with more ',
         highlightedText: 'sales-qualified leads',
-        subheadline: 'We help your business focus on what really matters:',
-        bulletPoints: [
-          {
-            _key: 'bullet-1',
-            title: "Hit your ICP's needs",
-            description: 'without breaking the bank.'
-          },
-          {
-            _key: 'bullet-2',
-            title: 'Boost profitability',
-            description: 'month-to-month spending your time closing deals.'
-          }
-        ],
+        bulletPoints: [],
         ctaText: 'Book a Call'
       },
       stats: [
         {
           _key: 'stat-1',
+          iconType: 'Users',
           metric: '+19 B2B',
           description: 'leads booked for a financing agency in 2 weeks',
-          bgColor: 'bg-green-100'
+          bgColor: 'bg-primary-300',
+          iconBg: 'bg-white border-2 border-primary-400 shadow-sm'
         },
         {
           _key: 'stat-2',
+          iconType: 'TrendingUp',
           metric: '2k+',
           description: 'Took a B2B financing agency from 20 qualified leads per month with a consistent outbound engine',
-          bgColor: 'bg-blue-100'
+          bgColor: 'bg-blue-200',
+          iconBg: 'bg-white border-2 border-blue-300 shadow-sm'
         },
         {
           _key: 'stat-3',
+          iconType: 'DollarSign',
           metric: '$1.7M',
           description: 'added in pipeline with one tailored sequence for SEO agency',
-          bgColor: 'bg-green-100'
+          bgColor: 'bg-primary-300',
+          iconBg: 'bg-white border-2 border-primary-400 shadow-sm'
         },
         {
           _key: 'stat-4',
+          iconType: 'Phone',
           metric: '25+',
           description: 'Booked 25 podcast guest spots per month for an SEO agency turning them into pipeline',
-          bgColor: 'bg-purple-100'
+          bgColor: 'bg-yellow-200',
+          iconBg: 'bg-white border-2 border-yellow-300 shadow-sm'
         }
       ],
       help: {
@@ -75,7 +71,7 @@ async function populateSanity() {
         ]
       },
       seo: {
-        metaTitle: 'Mumbo LEADS - B2B Lead Generation & Cold Email Agency',
+        metaTitle: 'Mumbo Leads - B2B Lead Generation & Cold Email Agency',
         metaDescription: 'Fill your calendar with sales-qualified leads. Expert B2B cold email campaigns that generate results. Tech-driven delivery, laser-targeted prospecting, and copy that converts.',
         metaKeywords: ['B2B lead generation', 'cold email agency', 'sales qualified leads', 'outbound marketing', 'email marketing']
       }
@@ -86,7 +82,7 @@ async function populateSanity() {
     console.log('❓ Creating FAQs...')
     const faqs = [
       {
-        question: 'What makes Mumbo LEADS different from other lead gen agencies?',
+        question: 'What makes Mumbo Leads different from other lead gen agencies?',
         answer: 'We focus on quality over quantity, using a tech-driven approach combined with deep market research to ensure every lead is qualified and matches your ICP perfectly. Our proprietary targeting system and proven delivery methods set us apart.',
         order: 1
       },
@@ -117,7 +113,7 @@ async function populateSanity() {
       },
       {
         question: 'Why wouldn\'t I just hire a full-time SDR?',
-        answer: 'A full-time SDR costs $60k+ per year plus benefits, training, tools, and management time. With Mumbo LEADS, you get an entire team of experts, proven systems, and technology for a fraction of the cost, with faster results and no hiring risk.',
+        answer: 'A full-time SDR costs $60k+ per year plus benefits, training, tools, and management time. With Mumbo Leads, you get an entire team of experts, proven systems, and technology for a fraction of the cost, with faster results and no hiring risk.',
         order: 7
       }
     ]
@@ -174,24 +170,37 @@ async function populateSanity() {
     await client.createOrReplace({
       _type: 'settings',
       _id: 'settings',
-      siteName: 'Mumbo LEADS',
+      siteName: 'Mumbo Leads',
       tagline: 'B2B Cold Email Agency for Busy Companies',
+      calendlySettings: {
+        calendlyUrl: 'https://calendly.com/hopewell-mumboleads/30min'
+      },
       footer: {
         description: 'B2B Cold Email Agency\nfor Busy Companies',
-        email: 'info@nerdyjoe.com',
-        addresses: [
+        email: 'hopewell@mumboleads.com',
+        links: [
           {
-            line1: '7921H1 Lancaster Ave',
-            line2: 'Wayne, Munich, PA'
+            _key: 'link-case-study',
+            label: 'Case Study',
+            href: '/case-studies'
           },
           {
-            line1: '1382 Lexington Avenue',
-            line2: 'New York'
+            _key: 'link-blog',
+            label: 'Blog',
+            href: '/blog'
+          }
+        ],
+        addresses: [
+          {
+            _key: 'address-paarl',
+            line1: 'Paarl, Western Cape',
+            line2: 'South Africa',
+            city: '7646'
           }
         ]
       },
       defaultSeo: {
-        metaTitle: 'Mumbo LEADS - B2B Lead Generation & Cold Email Agency',
+        metaTitle: 'Mumbo Leads - B2B Lead Generation & Cold Email Agency',
         metaDescription: 'Fill your calendar with sales-qualified leads through expert cold email campaigns.',
         metaKeywords: ['B2B lead generation', 'cold email', 'sales qualified leads']
       }
@@ -205,7 +214,7 @@ async function populateSanity() {
         _type: 'post',
         title: '5 Cold Email Strategies That Actually Generate Leads in 2024',
         slug: { current: '5-cold-email-strategies-2024' },
-        author: 'Mumbo LEADS Team',
+        author: 'Mumbo Leads Team',
         excerpt: 'Discover the proven cold email strategies that top B2B companies use to fill their pipeline with qualified leads. Learn what works in 2024 and beyond.',
         categories: ['Lead Generation', 'Cold Email'],
         publishedAt: '2024-01-15T10:00:00Z',
@@ -252,7 +261,7 @@ async function populateSanity() {
         _type: 'post',
         title: 'The Complete B2B Lead Generation Guide for 2024',
         slug: { current: 'b2b-lead-generation-guide-2024' },
-        author: 'Mumbo LEADS Team',
+        author: 'Mumbo Leads Team',
         excerpt: 'A comprehensive guide to B2B lead generation in 2024. From strategy to execution, learn how to build a predictable pipeline of qualified leads.',
         categories: ['Lead Generation', 'Strategy'],
         publishedAt: '2024-01-10T10:00:00Z',
@@ -313,7 +322,7 @@ async function populateSanity() {
           { _key: 'result-6', metric: 'Cost per Lead', value: '$47' }
         ],
         testimonial: {
-          quote: 'The Mumbo LEADS team completely transformed our outbound process. We went from sporadic leads to a predictable pipeline. The quality of leads is exceptional - these are exactly the decision-makers we need to talk to.',
+          quote: 'The Mumbo Leads team completely transformed our outbound process. We went from sporadic leads to a predictable pipeline. The quality of leads is exceptional - these are exactly the decision-makers we need to talk to.',
           author: 'Michael Chen',
           position: 'VP of Sales, FinanceFlow Inc.'
         },
@@ -341,7 +350,7 @@ async function populateSanity() {
           { _key: 'result-r6', metric: 'MRR Growth', value: '+$78K' }
         ],
         testimonial: {
-          quote: 'Working with Mumbo LEADS was a game-changer. They did not just send cold emails - they built us a complete outbound system. The podcast placement strategy alone has been worth 10x our investment.',
+          quote: 'Working with Mumbo Leads was a game-changer. They did not just send cold emails - they built us a complete outbound system. The podcast placement strategy alone has been worth 10x our investment.',
           author: 'Sarah Martinez',
           position: 'Founder, RankBoost Digital'
         },

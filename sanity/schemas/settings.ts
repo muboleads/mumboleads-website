@@ -30,34 +30,22 @@ export default {
           name: 'url',
           title: 'Button URL',
           type: 'string',
-          description: 'Leave empty to use Cal.com booking modal. Add URL (e.g., /contact or https://example.com) to link to a page instead.',
+          description: 'Leave empty to use Calendly booking modal. Add URL (e.g., /contact or https://example.com) to link to a page instead.',
         },
       ],
     },
     {
-      name: 'calSettings',
-      title: 'Cal.com Booking Settings',
+      name: 'calendlySettings',
+      title: 'Calendly Booking Settings',
       type: 'object',
       fields: [
         {
-          name: 'calLink',
-          title: 'Cal.com Link',
-          type: 'string',
-          description: 'Your Cal.com booking link (e.g., "your-username/consultation" or full URL)',
-          placeholder: 'your-username/consultation',
-        },
-        {
-          name: 'layout',
-          title: 'Calendar Layout',
-          type: 'string',
-          options: {
-            list: [
-              {title: 'Month View', value: 'month_view'},
-              {title: 'Week View', value: 'week_view'},
-              {title: 'Column View', value: 'column_view'},
-            ],
-          },
-          initialValue: 'month_view',
+          name: 'calendlyUrl',
+          title: 'Calendly URL',
+          type: 'url',
+          description: 'Your full Calendly booking URL',
+          placeholder: 'https://calendly.com/your-username/meeting',
+          initialValue: 'https://calendly.com/hopewell-mumboleads/30min',
         },
       ],
     },
@@ -71,16 +59,40 @@ export default {
           title: 'Footer Description',
           type: 'text',
           rows: 2,
+          description: 'Appears in Column 1 below the logo',
         },
         {
           name: 'email',
           title: 'Contact Email',
           type: 'string',
+          description: 'Appears in Column 2',
+        },
+        {
+          name: 'links',
+          title: 'Footer Links',
+          type: 'array',
+          description: 'Navigation links in Column 3',
+          of: [{
+            type: 'object',
+            fields: [
+              {
+                name: 'label',
+                title: 'Link Label',
+                type: 'string',
+              },
+              {
+                name: 'href',
+                title: 'Link URL',
+                type: 'string',
+              },
+            ],
+          }],
         },
         {
           name: 'addresses',
           title: 'Addresses',
           type: 'array',
+          description: 'Appears in Column 4 under "Contact" heading',
           of: [{
             type: 'object',
             fields: [
@@ -96,7 +108,7 @@ export default {
               },
               {
                 name: 'city',
-                title: 'City',
+                title: 'City/Postal Code',
                 type: 'string',
               },
             ],
@@ -128,6 +140,46 @@ export default {
           name: 'instagram',
           title: 'Instagram URL',
           type: 'url',
+        },
+      ],
+    },
+    {
+      name: 'faqSection',
+      title: 'FAQ Section Headings',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Section Title',
+          type: 'string',
+          initialValue: 'What the FAQ',
+        },
+        {
+          name: 'description',
+          title: 'Section Description',
+          type: 'text',
+          rows: 2,
+          initialValue: 'Have a question? I trust you do! If you can\'t find your answer here, let\'s check email.',
+        },
+      ],
+    },
+    {
+      name: 'howItWorksSection',
+      title: 'How It Works Section Headings',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Section Title',
+          type: 'string',
+          initialValue: 'How does Mumbo Leads work?',
+        },
+        {
+          name: 'description',
+          title: 'Section Description',
+          type: 'text',
+          rows: 2,
+          initialValue: 'Generate Business Development calls and deals with your exact ICP in 4 easy steps.',
         },
       ],
     },

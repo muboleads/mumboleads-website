@@ -5,10 +5,10 @@ import { schemaTypes } from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'Mumbo LEADS Blog',
+  title: 'Mumbo Leads Blog',
 
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
-  dataset: process.env.SANITY_STUDIO_DATASET || 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
 
   plugins: [deskTool(), visionTool()],
 

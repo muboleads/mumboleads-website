@@ -37,7 +37,7 @@ export const caseStudies: CaseStudy[] = [
       { metric: 'Time to First Lead', value: '11 days' }
     ],
     testimonial: {
-      quote: 'Mumbo LEADS transformed our outbound strategy. We went from struggling to book 2-3 meetings per month to consistently generating 40+ qualified opportunities. The ROI has been incredible.',
+      quote: 'Mumbo Leads transformed our outbound strategy. We went from struggling to book 2-3 meetings per month to consistently generating 40+ qualified opportunities. The ROI has been incredible.',
       author: 'Sarah Johnson',
       position: 'VP of Sales, FinanceFlow Inc.'
     },
@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
       { metric: 'Campaign Duration', value: '90 days' }
     ],
     testimonial: {
-      quote: 'The level of personalization and market research Mumbo LEADS brought to our campaigns was game-changing. They did not just send emails—they opened doors to conversations with decision-makers we could not reach before.',
+      quote: 'The level of personalization and market research Mumbo Leads brought to our campaigns was game-changing. They did not just send emails—they opened doors to conversations with decision-makers we could not reach before.',
       author: 'Michael Chen',
       position: 'Founder & CEO, RankBoost Digital'
     },

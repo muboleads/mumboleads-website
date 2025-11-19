@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Mumbo LEADS - B2B Lead Generation',
-    short_name: 'Mumbo LEADS',
+    name: 'Mumbo Leads - B2B Lead Generation',
+    short_name: 'Mumbo Leads',
     description: 'Fill your calendar with more sales-qualified leads. Expert B2B cold email agency.',
     start_url: '/',
     display: 'standalone',

@@ -259,6 +259,8 @@ export async function getSettings() {
         calSettings,
         footer,
         social,
+        faqSection,
+        howItWorksSection,
         defaultSeo {
           ...,
           "ogImageUrl": ogImage.asset->url

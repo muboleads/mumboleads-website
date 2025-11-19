@@ -30,7 +30,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         category: sanityPost.categories?.[0] || 'Lead Generation',
         publishedAt: sanityPost.publishedAt,
         readTime: sanityPost.readTime || '5 min read',
-        author: sanityPost.author || 'Mumbo LEADS Team',
+        author: sanityPost.author || 'Mumbo Leads Team',
         content: null, // Sanity uses body (Portable Text)
         body: sanityPost.body // Portable Text content
       }

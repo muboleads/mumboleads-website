@@ -1,4 +1,4 @@
-# SEO Checklist for Mumbo LEADS
+# SEO Checklist for Mumbo Leads
 
 ## ✅ Completed SEO Elements
 
@@ -32,23 +32,23 @@
 
 ### 5. Social Media Images
 - [x] OpenGraph Image: `app/opengraph-image.tsx` (1200x630)
-- [x] Branded with Mumbo LEADS
+- [x] Branded with Mumbo Leads
 - [x] Includes tagline
 - [x] Brand colors applied
 - [x] Auto-generated for all pages
 
 ### 6. PWA Manifest
 - [x] File: `app/manifest.ts`
-- [x] App name: Mumbo LEADS
+- [x] App name: Mumbo Leads
 - [x] Theme color: #a6ea70
 - [x] Background: #000000
 - [x] Icons configured
 
 ### 7. Meta Tags (in app/layout.tsx)
-- [x] Title: "Mumbo LEADS | B2B Lead Generation & Cold Email Agency"
+- [x] Title: "Mumbo Leads | B2B Lead Generation & Cold Email Agency"
 - [x] Description: Optimized for conversions
 - [x] Keywords: B2B lead generation, cold email, sales qualified leads
-- [x] Author: Mumbo LEADS
+- [x] Author: Mumbo Leads
 - [x] Open Graph tags (Facebook, LinkedIn)
 - [x] Twitter Card tags
 - [x] Robots meta (index, follow)
@@ -56,7 +56,7 @@
 ### 8. Structured Data (JSON-LD)
 - [x] File: `components/seo/json-ld.tsx`
 - [x] Organization Schema
-  - Name: Mumbo LEADS
+  - Name: Mumbo Leads
   - URL: www.mumboleads.com
   - Logo
   - Contact info

@@ -32,8 +32,8 @@ export default async function Home() {
         <Hero data={homepage} />
         <Partners data={partners} />
         <Help data={homepage?.help} />
-        <HowItWorks data={howItWorksSteps} />
-        <FAQ data={faqs} />
+        <HowItWorks data={howItWorksSteps} sectionData={settings?.howItWorksSection} />
+        <FAQ data={faqs} sectionData={settings?.faqSection} />
         <Footer data={settings?.footer} />
       </main>
     </>

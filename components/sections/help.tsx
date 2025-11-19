@@ -86,7 +86,7 @@ export function Help({ data }: HelpProps) {
                 className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="flex-shrink-0">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary-400 to-primary-600 shadow-md">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-500 shadow-md">
                     <span className="text-lg font-bold text-gray-900">
                       {index + 1}
                     </span>
@@ -105,7 +105,7 @@ export function Help({ data }: HelpProps) {
               const Icon = iconMap[service.icon || 'FileText'] || FileText
               return (
                 <div key={index} className="flex flex-col items-center text-center text-white">
-                  <div className="mb-4 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 p-4 shadow-md animate-icon-glow">
+                  <div className="mb-4 rounded-xl bg-primary-500 p-4 shadow-md animate-icon-glow">
                     <Icon className="h-12 w-12 text-gray-900" />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-primary-400">{service.title}</h3>

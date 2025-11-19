@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 // Fallback data
 const defaultFaqs = [
   {
-    question: "What makes Mumbo LEADS different from other lead gen agencies?",
+    question: "What makes Mumbo Leads different from other lead gen agencies?",
     answer: "We focus on quality over quantity, using a tech-driven approach combined with deep market research to ensure every lead is qualified and matches your ICP perfectly. Our proprietary targeting system and proven delivery methods set us apart.",
     order: 1
   },
@@ -39,7 +39,7 @@ const defaultFaqs = [
   },
   {
     question: "Why wouldn't I just hire a full-time SDR?",
-    answer: "A full-time SDR costs $60k+ per year plus benefits, training, tools, and management time. With Mumbo LEADS, you get an entire team of experts, proven systems, and technology for a fraction of the cost, with faster results and no hiring risk.",
+    answer: "A full-time SDR costs $60k+ per year plus benefits, training, tools, and management time. With Mumbo Leads, you get an entire team of experts, proven systems, and technology for a fraction of the cost, with faster results and no hiring risk.",
     order: 7
   }
 ]
@@ -50,11 +50,18 @@ interface FAQProps {
     answer: string
     order: number
   }> | null
+  sectionData?: {
+    title?: string
+    description?: string
+  } | null
 }
 
-export function FAQ({ data }: FAQProps) {
+export function FAQ({ data, sectionData }: FAQProps) {
   const faqs = data || defaultFaqs
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const sectionTitle = sectionData?.title || 'What the FAQ'
+  const sectionDescription = sectionData?.description || 'Have a question? I trust you do! If you can\'t find your answer here, let\'s check email.'
 
   return (
     <section id="faq" className="py-16 sm:py-20 bg-gray-50">
@@ -62,10 +69,10 @@ export function FAQ({ data }: FAQProps) {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            What the FAQ
+            {sectionTitle}
           </h2>
           <p className="text-lg text-gray-600">
-            Have a question? I trust you do! If you can&apos;t find your answer here, let&apos;s check email.
+            {sectionDescription}
           </p>
         </div>
 
@@ -80,7 +87,7 @@ export function FAQ({ data }: FAQProps) {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
               >
-                <span className="text-lg font-bold text-gray-900 pr-8">
+                <span className="text-lg font-bold bg-gradient-to-r from-primary-600 to-gray-900 bg-clip-text text-transparent pr-8">
                   {faq.question}
                 </span>
                 <ChevronDown

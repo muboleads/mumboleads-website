@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 // Image metadata
-export const alt = 'Mumbo LEADS - B2B Lead Generation & Cold Email Agency'
+export const alt = 'Mumbo Leads - B2B Lead Generation & Cold Email Agency'
 export const size = {
   width: 1200,
   height: 630,
@@ -42,7 +42,7 @@ export default async function OgImage() {
               display: 'flex',
             }}
           >
-            Mumbo LEADS
+            Mumbo Leads
           </div>
         </div>
 

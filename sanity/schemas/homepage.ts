@@ -69,12 +69,30 @@ export default {
         type: 'object',
         fields: [
           {
-            name: 'icon',
-            title: 'Icon',
-            type: 'image',
+            name: 'iconType',
+            title: 'Icon Type',
+            type: 'string',
             options: {
-              hotspot: true,
+              list: [
+                {title: '📊 Trending Up (Growth)', value: 'TrendingUp'},
+                {title: '📈 Bar Chart (Statistics)', value: 'BarChart3'},
+                {title: '💰 Dollar Sign (Revenue)', value: 'DollarSign'},
+                {title: '👥 Users (Customers/Leads)', value: 'Users'},
+                {title: '✉️ Mail (Emails/Outreach)', value: 'Mail'},
+                {title: '🎯 Target (Goals)', value: 'Target'},
+                {title: '⚡ Zap (Speed/Performance)', value: 'Zap'},
+                {title: '✓ Check Circle (Success)', value: 'CheckCircle2'},
+                {title: '🚀 Rocket (Launch/Growth)', value: 'Rocket'},
+                {title: '📞 Phone (Calls/Meetings)', value: 'Phone'},
+                {title: '🔔 Bell (Notifications/Alerts)', value: 'Bell'},
+                {title: '⭐ Star (Quality/Rating)', value: 'Star'},
+                {title: '🎁 Gift (Value)', value: 'Gift'},
+                {title: '🏆 Award (Achievement)', value: 'Award'},
+                {title: '💼 Briefcase (Business)', value: 'Briefcase'},
+                {title: '📁 Folder (Organization)', value: 'Folder'},
+              ],
             },
+            initialValue: 'TrendingUp',
           },
           {
             name: 'metric',
@@ -96,9 +114,10 @@ export default {
             type: 'string',
             options: {
               list: [
-                {title: 'Primary', value: 'bg-primary-300'},
+                {title: 'Primary Green', value: 'bg-primary-300'},
                 {title: 'Accent Blue', value: 'bg-blue-200'},
                 {title: 'Accent Yellow', value: 'bg-yellow-200'},
+                {title: 'Accent Purple', value: 'bg-purple-200'},
               ],
             },
             initialValue: 'bg-primary-300',
@@ -112,6 +131,7 @@ export default {
                 {title: 'White with Primary Border', value: 'bg-white border-2 border-primary-400 shadow-sm'},
                 {title: 'White with Accent Blue Border', value: 'bg-white border-2 border-blue-300 shadow-sm'},
                 {title: 'White with Accent Yellow Border', value: 'bg-white border-2 border-yellow-300 shadow-sm'},
+                {title: 'White with Accent Purple Border', value: 'bg-white border-2 border-purple-300 shadow-sm'},
               ],
             },
             initialValue: 'bg-white border-2 border-primary-400 shadow-sm',
@@ -121,7 +141,6 @@ export default {
           select: {
             title: 'metric',
             subtitle: 'description',
-            media: 'icon',
           },
         },
       }],

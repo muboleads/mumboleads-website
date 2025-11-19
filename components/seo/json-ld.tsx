@@ -2,13 +2,13 @@ export function JsonLd() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Mumbo LEADS",
+    "name": "Mumbo Leads",
     "description": "B2B Cold Email Agency - Fill your calendar with sales-qualified leads",
     "url": "https://www.mumboleads.com",
     "logo": "https://www.mumboleads.com/logo.svg",
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "info@mumboleads.com",
+      "email": "hopewell@mumboleads.com",
       "contactType": "Customer Service",
       "areaServed": ["ZA", "US", "GB"]
     },
@@ -18,6 +18,9 @@ export function JsonLd() {
     ],
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": "Paarl",
+      "addressRegion": "Western Cape",
+      "postalCode": "7646",
       "addressCountry": "ZA"
     }
   }
@@ -28,7 +31,7 @@ export function JsonLd() {
     "serviceType": "B2B Lead Generation",
     "provider": {
       "@type": "Organization",
-      "name": "Mumbo LEADS"
+      "name": "Mumbo Leads"
     },
     "areaServed": ["ZA", "US", "GB"],
     "hasOfferCatalog": {
@@ -69,7 +72,7 @@ export function JsonLd() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What makes Mumbo LEADS different from other lead gen agencies?",
+        "name": "What makes Mumbo Leads different from other lead gen agencies?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We focus on quality over quantity, using a tech-driven approach combined with deep market research to ensure every lead is qualified and matches your ICP perfectly. Our proprietary targeting system and proven delivery methods set us apart."
