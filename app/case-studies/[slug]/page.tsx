@@ -178,7 +178,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
                     <Quote className="h-12 w-12 text-primary-200 absolute top-6 left-6" />
                     <div className="relative z-10 pl-8">
                       <p className="text-xl text-gray-800 italic mb-6 leading-relaxed">
-                        "{caseStudy.testimonial.quote}"
+                        &ldquo;{caseStudy.testimonial.quote}&rdquo;
                       </p>
                       <div className="flex items-center gap-4">
                         <div>
@@ -201,7 +201,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
                   Ready for similar results?
                 </h3>
                 <p className="text-lg mb-6 text-white/90">
-                  Let's discuss how we can help you generate more qualified leads.
+                  Let&apos;s discuss how we can help you generate more qualified leads.
                 </p>
                 <Link
                   href="/#book-call"

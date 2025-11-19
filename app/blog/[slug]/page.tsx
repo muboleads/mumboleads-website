@@ -166,7 +166,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   Want to implement these strategies?
                 </h3>
                 <p className="text-lg mb-6 text-white/90">
-                  Let's discuss how we can help you generate more qualified leads for your business.
+                  Let&apos;s discuss how we can help you generate more qualified leads for your business.
                 </p>
                 <Link
                   href="/#book-call"

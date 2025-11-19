@@ -51,7 +51,7 @@ export default async function CaseStudiesPage() {
                 Client <span className="text-primary-700">Success Stories</span>
               </h1>
               <p className="text-lg text-gray-600">
-                Real results from real clients. See how we've helped B2B companies fill their pipeline with qualified leads.
+                Real results from real clients. See how we&apos;ve helped B2B companies fill their pipeline with qualified leads.
               </p>
             </div>
 
