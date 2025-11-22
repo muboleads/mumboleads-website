@@ -5,7 +5,7 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { Container } from '@/components/ui/container'
 import { getCaseStudies, CaseStudy } from '@/lib/case-studies-data'
-import { getCaseStudiesFromSanity } from '@/lib/sanity'
+import { getCaseStudiesFromSanity, getSettings } from '@/lib/sanity'
 import { TrendingUp, Users, Target } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -18,6 +18,9 @@ export const metadata: Metadata = {
 }
 
 export default async function CaseStudiesPage() {
+  // Fetch settings for header navigation
+  const settings = await getSettings()
+
   // Try to fetch from Sanity first, fall back to placeholder data
   const sanityCaseStudies = await getCaseStudiesFromSanity()
   const fallbackCaseStudies = getCaseStudies()
@@ -41,7 +44,7 @@ export default async function CaseStudiesPage() {
 
   return (
     <>
-      <Header />
+      <Header data={settings} />
       <main className="min-h-screen bg-gray-50">
         <Container>
           {/* Header Section */}

@@ -5,7 +5,7 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { Container } from '@/components/ui/container'
 import { getBlogPosts, BlogPost } from '@/lib/blog-data'
-import { getPosts } from '@/lib/sanity'
+import { getPosts, getSettings } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import { Calendar, Clock } from 'lucide-react'
 
@@ -19,6 +19,9 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
+  // Fetch settings for header navigation
+  const settings = await getSettings()
+
   // Try to fetch from Sanity first, fall back to placeholder data
   const sanityPosts = await getPosts()
   const fallbackPosts = getBlogPosts()
@@ -41,7 +44,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <Header />
+      <Header data={settings} />
       <main className="min-h-screen bg-gray-50">
         <Container>
           {/* Header Section */}

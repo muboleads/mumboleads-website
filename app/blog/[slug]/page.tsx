@@ -5,7 +5,7 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { Container } from '@/components/ui/container'
 import { getBlogPost } from '@/lib/blog-data'
-import { getPost } from '@/lib/sanity'
+import { getPost, getSettings } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import { Calendar, Clock, ArrowLeft, User } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
@@ -13,6 +13,9 @@ import remarkGfm from 'remark-gfm'
 import { PortableText } from '@portabletext/react'
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  // Fetch settings for header navigation
+  const settings = await getSettings()
+
   // Try Sanity first, fall back to placeholder data
   const sanityPost = await getPost(params.slug)
   const fallbackPost = getBlogPost(params.slug)
@@ -43,7 +46,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   return (
     <>
-      <Header />
+      <Header data={settings} />
       <main className="min-h-screen bg-white">
         <article>
           {/* Hero Section */}

@@ -6,7 +6,7 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { Container } from '@/components/ui/container'
 import { getCaseStudy, getCaseStudies } from '@/lib/case-studies-data'
-import { getCaseStudyFromSanity, getCaseStudiesFromSanity } from '@/lib/sanity'
+import { getCaseStudyFromSanity, getCaseStudiesFromSanity, getSettings } from '@/lib/sanity'
 import { ArrowLeft, Quote } from 'lucide-react'
 
 export async function generateStaticParams() {
@@ -55,6 +55,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function CaseStudyPage({ params }: { params: { slug: string } }) {
+  // Fetch settings for header navigation
+  const settings = await getSettings()
+
   // Try Sanity first, fall back to placeholder data
   const sanityCaseStudy = await getCaseStudyFromSanity(params.slug)
   const fallbackCaseStudy = getCaseStudy(params.slug)
@@ -85,7 +88,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
 
   return (
     <>
-      <Header />
+      <Header data={settings} />
       <main className="min-h-screen bg-white">
         <article>
           {/* Hero Section */}
