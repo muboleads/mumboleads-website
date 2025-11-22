@@ -5,6 +5,10 @@ import howItWorks from './howItWorks'
 import partner from './partner'
 import caseStudy from './caseStudy'
 import settings from './settings'
+import pricing from './pricing'
+import aboutUs from './aboutUs'
+import analytics from './analytics'
+import seoSettings from './seoSettings'
 
 export const schemaTypes = [
   // Content Management
@@ -14,7 +18,11 @@ export const schemaTypes = [
   faq,
   howItWorks,
   partner,
+  pricing,
+  aboutUs,
 
   // Site Settings
   settings,
+  seoSettings,
+  analytics,
 ]

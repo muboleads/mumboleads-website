@@ -8,18 +8,15 @@ import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
 import { useCalendly } from "@/lib/calendly-context"
 
-const navigation = [
-  { name: "FAQ", href: "/#faq" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Blog", href: "/blog" },
-]
-
 interface HeaderProps {
   data?: {
     headerCta?: {
       text?: string
       url?: string
     }
+    showCaseStudies?: boolean
+    showBlog?: boolean
+    showAbout?: boolean
   } | null
 }
 
@@ -29,6 +26,14 @@ export function Header({ data }: HeaderProps) {
 
   const ctaText = data?.headerCta?.text || "Book a Consultation"
   const ctaUrl = data?.headerCta?.url
+
+  // Build navigation array based on toggles from Sanity
+  const navigation = [
+    { name: "FAQ", href: "/#faq", visible: true }, // Always visible
+    { name: "About", href: "/about", visible: data?.showAbout === true },
+    { name: "Case Studies", href: "/case-studies", visible: data?.showCaseStudies === true },
+    { name: "Blog", href: "/blog", visible: data?.showBlog === true },
+  ].filter(item => item.visible)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">

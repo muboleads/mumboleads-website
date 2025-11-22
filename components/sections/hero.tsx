@@ -139,7 +139,7 @@ export function Hero({ data }: HeroProps) {
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
           {/* Left Column - Content */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center text-center lg:text-left">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
               {hero.headline}
               {hero.highlightedText && (
@@ -172,7 +172,7 @@ export function Hero({ data }: HeroProps) {
               </div>
             )}
 
-            <div className="mt-8">
+            <div className="mt-8 flex justify-center lg:justify-start">
               <div className="animate-premium-button inline-block">
                 {hero.ctaUrl ? (
                   <Link href={hero.ctaUrl} target="_blank" rel="noopener noreferrer">

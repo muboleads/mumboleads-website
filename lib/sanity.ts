@@ -245,6 +245,69 @@ export async function getPartners(type?: 'official' | 'company') {
 }
 
 // ============================================================================
+// PRICING
+// ============================================================================
+
+export async function getPricing() {
+  if (!client) return []
+  try {
+    const pricing = await client.fetch(
+      `*[_type == "pricing"] | order(order asc) {
+        _id,
+        planName,
+        currency,
+        price,
+        period,
+        timeline,
+        features,
+        ctaText,
+        ctaLink,
+        upsellEnabled,
+        upsellName,
+        upsellDescription,
+        upsellPrice,
+        order
+      }`
+    )
+    return pricing
+  } catch (error) {
+    console.error('Error fetching pricing:', error)
+    return []
+  }
+}
+
+// ============================================================================
+// ABOUT US
+// ============================================================================
+
+export async function getAboutUs() {
+  if (!client) return null
+  try {
+    const aboutUs = await client.fetch(
+      `*[_type == "aboutUs"][0] {
+        ownerName,
+        ownerRole,
+        "ownerImageUrl": ownerImage.asset->url,
+        sectionHeading,
+        shortBio,
+        extendedBio,
+        missionTitle,
+        missionDescription,
+        coreValues[] {
+          icon,
+          title,
+          description
+        }
+      }`
+    )
+    return aboutUs
+  } catch (error) {
+    console.error('Error fetching about us:', error)
+    return null
+  }
+}
+
+// ============================================================================
 // SETTINGS
 // ============================================================================
 
@@ -256,11 +319,19 @@ export async function getSettings() {
         siteName,
         tagline,
         headerCta,
-        calSettings,
+        calendlySettings,
         footer,
         social,
+        showFAQ,
         faqSection,
+        showHowItWorks,
         howItWorksSection,
+        showPricing,
+        pricingSection,
+        showAboutSection,
+        showCaseStudies,
+        showBlog,
+        showAbout,
         defaultSeo {
           ...,
           "ogImageUrl": ogImage.asset->url
@@ -270,6 +341,68 @@ export async function getSettings() {
     return settings
   } catch (error) {
     console.error('Error fetching settings:', error)
+    return null
+  }
+}
+
+// ============================================================================
+// ANALYTICS
+// ============================================================================
+
+export async function getAnalytics() {
+  if (!client) return null
+  try {
+    const analytics = await client.fetch(
+      `*[_type == "analytics"][0] {
+        googleAnalytics,
+        googleTagManager,
+        mixpanel,
+        clarity,
+        hotjar,
+        crazyEgg,
+        facebookPixel,
+        linkedInInsight,
+        customScripts
+      }`
+    )
+    return analytics
+  } catch (error) {
+    console.error('Error fetching analytics:', error)
+    return null
+  }
+}
+
+// ============================================================================
+// SEO SETTINGS
+// ============================================================================
+
+export async function getSEOSettings() {
+  if (!client) return null
+  try {
+    const seoSettings = await client.fetch(
+      `*[_type == "seoSettings"][0] {
+        siteName,
+        siteUrl,
+        defaultMetaTitle,
+        defaultMetaDescription,
+        "defaultOgImageUrl": defaultOgImage.asset->url,
+        keywords,
+        author,
+        twitterHandle,
+        "faviconUrl": favicon.asset->url,
+        "appleTouchIconUrl": appleTouchIcon.asset->url,
+        structuredData {
+          ...,
+          "logoUrl": logo.asset->url
+        },
+        searchConsole,
+        robotsSettings,
+        sitemapSettings
+      }`
+    )
+    return seoSettings
+  } catch (error) {
+    console.error('Error fetching SEO settings:', error)
     return null
   }
 }

@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { CalendlyProvider } from '@/lib/calendly-context'
-import { getSettings } from '@/lib/sanity'
+import { getSettings, getAnalytics } from '@/lib/sanity'
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -71,14 +72,19 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const settings = await getSettings()
+  const [settings, analytics] = await Promise.all([
+    getSettings(),
+    getAnalytics(),
+  ])
 
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
-        <CalendlyProvider calendlySettings={settings?.calendlySettings}>
-          {children}
-        </CalendlyProvider>
+        <AnalyticsProvider config={analytics}>
+          <CalendlyProvider calendlySettings={settings?.calendlySettings}>
+            {children}
+          </CalendlyProvider>
+        </AnalyticsProvider>
         <Analytics />
         <SpeedInsights />
       </body>

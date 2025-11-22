@@ -4,6 +4,8 @@ import { Hero } from "@/components/sections/hero"
 import { Partners } from "@/components/sections/partners"
 import { Help } from "@/components/sections/help"
 import { HowItWorks } from "@/components/sections/how-it-works"
+import { Pricing } from "@/components/sections/pricing"
+import { AboutUs } from "@/components/sections/about-us"
 import { FAQ } from "@/components/sections/faq"
 import { JsonLd } from "@/components/seo/json-ld"
 import {
@@ -11,17 +13,21 @@ import {
   getFAQs,
   getHowItWorksSteps,
   getPartners,
-  getSettings
+  getSettings,
+  getPricing,
+  getAboutUs
 } from "@/lib/sanity"
 
 export default async function Home() {
   // Fetch all homepage data from Sanity
-  const [homepage, faqs, howItWorksSteps, partners, settings] = await Promise.all([
+  const [homepage, faqs, howItWorksSteps, partners, settings, pricing, aboutUs] = await Promise.all([
     getHomepage(),
     getFAQs(),
     getHowItWorksSteps(),
     getPartners(),
     getSettings(),
+    getPricing(),
+    getAboutUs(),
   ])
 
   return (
@@ -32,8 +38,18 @@ export default async function Home() {
         <Hero data={homepage} />
         <Partners data={partners} />
         <Help data={homepage?.help} />
-        <HowItWorks data={howItWorksSteps} sectionData={settings?.howItWorksSection} />
-        <FAQ data={faqs} sectionData={settings?.faqSection} />
+        {settings?.showHowItWorks === true && (
+          <HowItWorks data={howItWorksSteps} sectionData={settings?.howItWorksSection} />
+        )}
+        {settings?.showPricing === true && (
+          <Pricing data={pricing} sectionData={settings?.pricingSection} />
+        )}
+        {settings?.showAboutSection === true && (
+          <AboutUs data={aboutUs} showAboutPage={settings?.showAbout === true} />
+        )}
+        {settings?.showFAQ === true && (
+          <FAQ data={faqs} sectionData={settings?.faqSection} />
+        )}
         <Footer data={settings?.footer} />
       </main>
     </>
