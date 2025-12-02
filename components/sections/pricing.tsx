@@ -143,7 +143,7 @@ export function Pricing({ data, sectionData }: PricingProps) {
                   {/* Section Header */}
                   <div className="text-center mb-6">
                     <p className="text-sm font-semibold text-primary-700 uppercase tracking-wide">
-                      What's included
+                      What&apos;s included
                     </p>
                   </div>
 
