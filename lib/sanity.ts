@@ -258,14 +258,11 @@ export async function getPricing() {
         currency,
         price,
         period,
-        timeline,
+        highlight,
+        savingsNote,
         features,
         ctaText,
         ctaLink,
-        upsellEnabled,
-        upsellName,
-        upsellDescription,
-        upsellPrice,
         order
       }`
     )
