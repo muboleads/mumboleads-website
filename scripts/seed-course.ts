@@ -449,17 +449,18 @@ async function seedCourse() {
     const existing = await client.fetch(`*[_type == "salesCourse"][0]._id`)
 
     if (existing) {
-      // Update existing document
-      console.log('📝 Updating existing Sales Course document...')
-      await client.patch(existing).set(salesCourseData).commit()
-      console.log('✅ Sales Course updated successfully!')
-    } else {
-      // Create new document
-      console.log('📝 Creating new Sales Course document...')
-      await client.create(salesCourseData)
-      console.log('✅ Sales Course created successfully!')
+      // DO NOT override existing content - protect manual edits made in Sanity Studio
+      console.log('⚠️  Sales Course document already exists!')
+      console.log('ℹ️  Skipping to protect existing content.')
+      console.log('ℹ️  To edit content, use Sanity Studio instead.')
+      console.log('\n💡 If you really need to reset, delete the document in Sanity Studio first.')
+      return
     }
 
+    // Only create if no document exists
+    console.log('📝 Creating new Sales Course document...')
+    await client.create(salesCourseData)
+    console.log('✅ Sales Course created successfully!')
     console.log('\n🎉 Done! Visit /course to see the changes.')
   } catch (error) {
     console.error('❌ Error seeding course:', error)
