@@ -494,17 +494,117 @@ export default defineType({
     }),
 
     // ==========================================
-    // SEO
+    // SEO & SOCIAL SHARING
     // ==========================================
     defineField({
       name: 'seo',
-      title: 'SEO Settings',
+      title: 'SEO & Social Sharing',
       type: 'object',
+      description: 'Settings for search engines and social media sharing (Facebook, Twitter, LinkedIn, WhatsApp)',
       fields: [
-        defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string', initialValue: 'Cold Email Mastery Course | Grow Your B2B Business' }),
-        defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3, initialValue: 'Learn the exact cold email system that has generated $16.5M+ in sales pipeline. 8 modules, lifetime access, certificate included.' }),
-        defineField({ name: 'metaKeywords', title: 'Keywords', type: 'array', of: [{ type: 'string' }] }),
-        defineField({ name: 'ogImage', title: 'OG Image', type: 'image' }),
+        // Basic SEO
+        defineField({
+          name: 'metaTitle',
+          title: 'Meta Title',
+          type: 'string',
+          initialValue: 'Cold Email Mastery Course | Grow Your B2B Business',
+          description: 'Recommended: 50-60 characters',
+          validation: (Rule) => Rule.max(70).warning('Keep under 70 characters for best SEO'),
+        }),
+        defineField({
+          name: 'metaDescription',
+          title: 'Meta Description',
+          type: 'text',
+          rows: 3,
+          initialValue: 'Learn the exact cold email system that has generated $16.5M+ in sales pipeline. 8 modules, lifetime access, certificate included.',
+          description: 'Recommended: 150-160 characters',
+          validation: (Rule) => Rule.max(170).warning('Keep under 170 characters for best SEO'),
+        }),
+        defineField({
+          name: 'metaKeywords',
+          title: 'Keywords',
+          type: 'array',
+          of: [{ type: 'string' }],
+          description: 'SEO keywords for the page',
+        }),
+        defineField({
+          name: 'canonicalUrl',
+          title: 'Canonical URL',
+          type: 'url',
+          description: 'Full URL of this page (e.g., https://yourdomain.com/course)',
+        }),
+
+        // Open Graph (Facebook, LinkedIn, WhatsApp)
+        defineField({
+          name: 'ogTitle',
+          title: 'Social Share Title',
+          type: 'string',
+          description: 'Title shown when shared on Facebook, LinkedIn, WhatsApp. Falls back to Meta Title if empty.',
+        }),
+        defineField({
+          name: 'ogDescription',
+          title: 'Social Share Description',
+          type: 'text',
+          rows: 2,
+          description: 'Description shown when shared. Falls back to Meta Description if empty.',
+        }),
+        defineField({
+          name: 'ogImage',
+          title: 'Social Share Image (OG Image)',
+          type: 'image',
+          description: 'Recommended size: 1200x630px. This image appears when shared on Facebook, LinkedIn, WhatsApp, etc.',
+          options: {
+            accept: 'image/*',
+          },
+        }),
+
+        // Twitter Card
+        defineField({
+          name: 'twitterCard',
+          title: 'Twitter Card Type',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'Summary with Large Image (Recommended)', value: 'summary_large_image' },
+              { title: 'Summary', value: 'summary' },
+            ],
+          },
+          initialValue: 'summary_large_image',
+        }),
+        defineField({
+          name: 'twitterTitle',
+          title: 'Twitter Title',
+          type: 'string',
+          description: 'Title for Twitter cards. Falls back to OG Title if empty.',
+        }),
+        defineField({
+          name: 'twitterDescription',
+          title: 'Twitter Description',
+          type: 'text',
+          rows: 2,
+          description: 'Description for Twitter. Falls back to OG Description if empty.',
+        }),
+        defineField({
+          name: 'twitterImage',
+          title: 'Twitter Image',
+          type: 'image',
+          description: 'Image for Twitter cards. Falls back to OG Image if empty. Recommended: 1200x600px.',
+        }),
+        defineField({
+          name: 'twitterCreator',
+          title: 'Twitter Creator Handle',
+          type: 'string',
+          description: 'Twitter handle (e.g., @yourusername)',
+        }),
+
+        // Additional SEO
+        defineField({
+          name: 'noIndex',
+          title: 'Hide from Search Engines',
+          type: 'boolean',
+          initialValue: false,
+          description: 'Enable to prevent this page from appearing in search results',
+        }),
       ],
     }),
 

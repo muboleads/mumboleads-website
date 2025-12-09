@@ -427,8 +427,19 @@ export async function getSalesCourse() {
         finalCta,
         footer,
         seo {
-          ...,
-          "ogImageUrl": ogImage.asset->url
+          metaTitle,
+          metaDescription,
+          metaKeywords,
+          canonicalUrl,
+          ogTitle,
+          ogDescription,
+          "ogImageUrl": ogImage.asset->url,
+          twitterCard,
+          twitterTitle,
+          twitterDescription,
+          "twitterImageUrl": twitterImage.asset->url,
+          twitterCreator,
+          noIndex
         },
         heroProof,
         dashboardProof,
