@@ -9,6 +9,8 @@ import pricing from './pricing'
 import aboutUs from './aboutUs'
 import analytics from './analytics'
 import seoSettings from './seoSettings'
+import salesCourse from './salesCourse'
+import courseLead from './courseLead'
 
 export const schemaTypes = [
   // Content Management
@@ -20,6 +22,8 @@ export const schemaTypes = [
   partner,
   pricing,
   aboutUs,
+  salesCourse,
+  courseLead,
 
   // Site Settings
   settings,

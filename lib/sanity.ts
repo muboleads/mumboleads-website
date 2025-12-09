@@ -403,3 +403,47 @@ export async function getSEOSettings() {
     return null
   }
 }
+
+// ============================================================================
+// SALES COURSE
+// ============================================================================
+
+export async function getSalesCourse() {
+  if (!client) return null
+  try {
+    const course = await client.fetch(
+      `*[_type == "salesCourse"][0] {
+        urgency,
+        hero,
+        socialProof,
+        problem,
+        solution,
+        modules,
+        testimonials,
+        instructor,
+        pricing,
+        useCases,
+        faq,
+        finalCta,
+        footer,
+        seo {
+          ...,
+          "ogImageUrl": ogImage.asset->url
+        },
+        heroProof,
+        dashboardProof,
+        responseProof,
+        industryProof,
+        moreRepliesProof,
+        studentDashboardProof,
+        beforeFaqProof,
+        finalProof,
+        leadPopup
+      }`
+    )
+    return course
+  } catch (error) {
+    console.error('Error fetching sales course:', error)
+    return null
+  }
+}

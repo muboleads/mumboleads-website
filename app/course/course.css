@@ -1,0 +1,207 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #00FF88 0%, #00D4FF 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Box */
+.glow-box {
+  box-shadow: 0 0 60px rgba(0, 255, 136, 0.15), 0 0 100px rgba(0, 212, 255, 0.1);
+}
+
+/* Urgency Bar Gradient */
+.urgent-bar {
+  background: linear-gradient(90deg, #FF3D00 0%, #FF6D00 50%, #FF3D00 100%);
+  background-size: 200% 100%;
+  animation: urgentSlide 3s linear infinite;
+}
+
+@keyframes urgentSlide {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Module Card */
+.module-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.module-card:hover {
+  border-color: rgba(0, 255, 136, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+}
+
+/* CTA Button */
+.cta-button {
+  background: linear-gradient(135deg, #00FF88 0%, #00D4FF 100%);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
+}
+
+/* Pulse Glow Animation */
+.pulse-glow {
+  animation: pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: box-shadow;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4), 0 0 40px rgba(0, 255, 136, 0.2), 0 0 60px rgba(0, 255, 136, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.6), 0 0 60px rgba(0, 255, 136, 0.4), 0 0 90px rgba(0, 255, 136, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4), 0 0 40px rgba(0, 255, 136, 0.2), 0 0 60px rgba(0, 255, 136, 0.1);
+  }
+}
+
+/* Float Up Animation */
+.float-up {
+  animation: floatUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+@keyframes floatUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  border-left: 3px solid #00FF88;
+}
+
+/* Counter Box */
+.counter-box {
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+/* Value Stack Item */
+.value-item {
+  border-bottom: 1px dashed rgba(255,255,255,0.2);
+}
+
+/* Strike Through */
+.strike-through {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* Benefit Card Color Schemes */
+.benefit-card-emerald {
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.benefit-card-cyan {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.benefit-card-purple {
+  background: rgba(168, 85, 247, 0.1);
+}
+
+/* Problem Pain Point */
+.pain-point {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Proof Card */
+.proof-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.proof-card:hover {
+  border-color: rgba(0, 255, 136, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Response Card */
+.response-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.response-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* FAQ Item */
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Use Case Item */
+.use-case-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Instructor Avatar */
+.instructor-avatar {
+  background: linear-gradient(135deg, #00FF88 0%, #00D4FF 100%);
+}
+
+/* Section backgrounds */
+.section-gradient-emerald {
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 136, 0.05) 50%, transparent 100%);
+}
+
+.section-gradient-white {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Modal Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.15s ease-out;
+}
