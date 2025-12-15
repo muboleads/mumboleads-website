@@ -625,9 +625,13 @@ export function TourismLanding({ data, partners = [] }: TourismLandingProps) {
                           required
                         >
                           <option value="">Select type...</option>
-                          {heroForm.businessTypes?.map((type, i) => (
-                            <option key={i} value={type}>{type}</option>
-                          ))}
+                          <option value="hotel">Hotel</option>
+                          <option value="lodge">Lodge / Safari Lodge</option>
+                          <option value="guesthouse">Guest House / B&B</option>
+                          <option value="resort">Resort / Spa</option>
+                          <option value="tour-operator">Tour Operator</option>
+                          <option value="restaurant">Restaurant / Venue</option>
+                          <option value="other">Other Hospitality Business</option>
                         </select>
                       </div>
                       <div className="tourism-form-group">
@@ -639,9 +643,11 @@ export function TourismLanding({ data, partners = [] }: TourismLandingProps) {
                           required
                         >
                           <option value="">Select range...</option>
-                          {heroForm.revenueRanges?.map((range, i) => (
-                            <option key={i} value={range}>{range}</option>
-                          ))}
+                          <option value="under-50k">Under R50,000</option>
+                          <option value="50k-150k">R50,000 - R150,000</option>
+                          <option value="150k-500k">R150,000 - R500,000</option>
+                          <option value="500k-1m">R500,000 - R1M</option>
+                          <option value="1m-plus">R1M+</option>
                         </select>
                       </div>
                     </div>
@@ -666,11 +672,11 @@ export function TourismLanding({ data, partners = [] }: TourismLandingProps) {
                           required
                         >
                           <option value="">Select goal...</option>
-                          <option value="More Leads">More Leads</option>
-                          <option value="More Sales">More Sales</option>
-                          <option value="Brand Awareness">Brand Awareness</option>
-                          <option value="Direct Bookings">Direct Bookings</option>
-                          <option value="All of the Above">All of the Above</option>
+                          <option value="leads">More Leads</option>
+                          <option value="sales">More Sales</option>
+                          <option value="awareness">Brand Awareness</option>
+                          <option value="bookings">Direct Bookings</option>
+                          <option value="all">All of the Above</option>
                         </select>
                       </div>
                     </div>
@@ -684,10 +690,10 @@ export function TourismLanding({ data, partners = [] }: TourismLandingProps) {
                         required
                       >
                         <option value="">Monthly investment...</option>
-                        <option value="Under R5,000/mo">Under R5,000/mo</option>
-                        <option value="R5,000 - R15,000/mo">R5,000 - R15,000/mo</option>
-                        <option value="R15,000 - R30,000/mo">R15,000 - R30,000/mo</option>
-                        <option value="R30,000+/mo">R30,000+/mo</option>
+                        <option value="under-5k">Under R5,000/mo</option>
+                        <option value="5k-15k">R5,000 - R15,000/mo</option>
+                        <option value="15k-30k">R15,000 - R30,000/mo</option>
+                        <option value="30k-plus">R30,000+/mo</option>
                       </select>
                     </div>
 
