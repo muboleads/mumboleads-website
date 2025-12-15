@@ -64,7 +64,7 @@ export default defineType({
     defineField({
       name: 'website',
       title: 'Website',
-      type: 'url',
+      type: 'string',
     }),
     defineField({
       name: 'primaryGoal',

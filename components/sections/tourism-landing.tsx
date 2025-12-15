@@ -650,7 +650,7 @@ export function TourismLanding({ data, partners = [] }: TourismLandingProps) {
                       <div className="tourism-form-group">
                         <label>Website</label>
                         <input
-                          type="url"
+                          type="text"
                           placeholder="yourbusiness.co.za"
                           name="website"
                           value={formData.website}
