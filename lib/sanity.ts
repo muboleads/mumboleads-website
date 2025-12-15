@@ -458,3 +458,48 @@ export async function getSalesCourse() {
     return null
   }
 }
+
+// ============================================================================
+// TOURISM LANDING PAGE
+// ============================================================================
+
+export async function getTourismLanding() {
+  if (!client) return null
+  try {
+    const page = await client.fetch(
+      `*[_type == "tourismLanding"][0] {
+        urgency,
+        hero,
+        heroForm,
+        problem,
+        solution,
+        results,
+        whatYouGet,
+        testimonials,
+        whoFor,
+        guarantee,
+        faq,
+        finalCta,
+        footer,
+        dashboardProof,
+        responseProof,
+        moreProof,
+        seo {
+          metaTitle,
+          metaDescription,
+          metaKeywords,
+          canonicalUrl,
+          ogTitle,
+          ogDescription,
+          "ogImageUrl": ogImage.asset->url,
+          twitterCard,
+          noIndex
+        }
+      }`
+    )
+    return page
+  } catch (error) {
+    console.error('Error fetching tourism landing:', error)
+    return null
+  }
+}

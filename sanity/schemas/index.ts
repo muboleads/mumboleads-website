@@ -11,6 +11,8 @@ import analytics from './analytics'
 import seoSettings from './seoSettings'
 import salesCourse from './salesCourse'
 import courseLead from './courseLead'
+import tourismLanding from './tourismLanding'
+import tourismLead from './tourismLead'
 
 export const schemaTypes = [
   // Content Management
@@ -24,6 +26,8 @@ export const schemaTypes = [
   aboutUs,
   salesCourse,
   courseLead,
+  tourismLanding,
+  tourismLead,
 
   // Site Settings
   settings,
